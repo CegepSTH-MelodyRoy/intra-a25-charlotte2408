@@ -3,35 +3,39 @@
 ##########################################
 
 import random
-import mathplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 
-
+#Question 1
 def temperature_journaliere():
 
-    jour= 0
-    temperature_froide= 24
+    jour= 1
+    temperature_froide=24
     temperature_chaude=30
-
-    temperature= round(random.uniform(20,35),1)
     for temperature in range(10):
-        if temperature < temperature_froide:
+        t= round(random.randint(20,35),1)
+        if t > temperature_froide:
             print('Trop froid')
-        elif temperature > temperature_chaude:
+
+        elif t > temperature_chaude:
              print('Trop chaud')
         else:
-             print('OK')
-             jour=+1
+            print('OK')
 
-        print('Jour', jour, ':', temperature, end='')
 
+
+
+
+        jour=+1
+        print('Jour', jour, ':', t)
+    print('Fin')
 temperature_journaliere()
 
 
 
 
-
+#Question 2
 def population_bacterie(taux_initial):
 
     taux= np.pi/1.5
@@ -44,11 +48,10 @@ def population_bacterie(taux_initial):
     plt.plot(population,heure, '*b')
     plt.plot([0,50000],[10,50000],'-r')
     plt.xlim(0,11)
-    plt.ylim(0, 160000)
+    plt.ylim(0,160000)
     plt.title('Croissance bactérienne')
     plt.xlabel('Heure')
     plt.ylabel('Population')
     plt.grid()
     plt.show()
 
-population_bacterie(100)
